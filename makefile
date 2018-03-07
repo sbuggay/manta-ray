@@ -4,7 +4,7 @@ CFLAGS = -lm
 SOURCEDIR = src
 BUILDDIR = build
 
-EXECUTABLE = raytracer
+EXECUTABLE = mantaray
 SOURCES=$(wildcard $(SOURCEDIR)/*.c)
 
 all: dir $(BUILDDIR)/$(EXECUTABLE)
