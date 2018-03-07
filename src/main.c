@@ -3,7 +3,19 @@
 
 #include "ray.h"
 
+int hit_sphere(vec3 center, float radius, ray r) {
+    vec3 oc = vec3_sub(r.a, center);
+    float a = vec3_dot(r.b, r.b);
+    float b = 2.0 * vec3_dot(oc, r.b);
+    float c = vec3_dot(oc, oc) - radius * radius;
+    float discriminant = b * b - 4 * a * c;
+    return (discriminant > 0);
+}
+
 vec3 color(ray r) {
+    if (hit_sphere(vec3_create(0, 0, -1), 0.5, r)) {
+        return vec3_create(1, 0, 0);
+    }
     vec3 unit = vec3_unit(r.b);
     float t = 0.5 * unit.y + 1.0;
     vec3 base = vec3_mul_scalar(vec3_create(1.0, 1.0, 1.0), (1.0 - t));
