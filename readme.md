@@ -2,7 +2,7 @@
 
 A tiny raytracing toolkit for learning purposes.
 
-![example](https://raw.githubusercontent.com/sbuggay/manta-ray/master/demo/example2.png)
+![example](https://raw.githubusercontent.com/sbuggay/manta-ray/master/demo/error#3.png)
 
 ## Usage
 
