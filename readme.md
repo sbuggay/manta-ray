@@ -11,9 +11,11 @@ Building
 make
 ```
 
+manta-ray will write a `ppm` to `stdout`. 
+
 Running
 ```
-./build/mantaray
+./build/manta-ray > image.ppm
 ```
 
 Cleanup

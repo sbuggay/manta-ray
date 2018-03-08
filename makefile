@@ -4,7 +4,7 @@ CFLAGS = -lm
 SOURCEDIR = src
 BUILDDIR = build
 
-EXECUTABLE = mantaray
+EXECUTABLE = manta-ray
 SOURCES=$(wildcard $(SOURCEDIR)/*.c)
 
 all: dir $(BUILDDIR)/$(EXECUTABLE)
