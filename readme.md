@@ -4,8 +4,6 @@ A tiny raytracing toolkit for learning purposes.
 
 ![example](https://raw.githubusercontent.com/sbuggay/manta-ray/master/demo/error%233.png)
 
-
-
 ## Usage
 
 Building
@@ -33,3 +31,8 @@ Cleanup
 ```bash
 make clean
 ```
+
+## References
+
+- https://www.amazon.com/gp/product/B0785N5QTC?ref=series_rw_dp_labf
+- https://en.wikipedia.org/wiki/Netpbm_format
