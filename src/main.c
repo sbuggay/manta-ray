@@ -2,29 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "ray.h"
-
-/**
- * @brief 
- * 
- * @param center 
- * @param radius 
- * @param r 
- * @return int 
- */
-float hit_sphere(vec3 center, float radius, ray r) {
-    vec3 oc = vec3_sub(r.a, center);
-    float a = vec3_dot(r.b, r.b);
-    float b = 2.0 * vec3_dot(oc, r.b);
-    float c = vec3_dot(oc, oc) - radius * radius;
-    float discriminant = b * b - 4 * a * c;
-    if (discriminant < 0) {
-        return -1.0;
-    }
-    else {
-        return (-1.0 * b - sqrt(discriminant)) / (2.0 * a);
-    }
-}
+#include "sphere.h"
 
 /**
  * @brief 
@@ -33,7 +11,7 @@ float hit_sphere(vec3 center, float radius, ray r) {
  * @return vec3 
  */
 vec3 color(ray r) {
-    float t = hit_sphere(vec3_create(0, 0, -1), 0.5, r);
+    float t = hit_sphere(sphere_create(vec3_create(0, 0, -1), 0.5), r);
     if (t > 0.0) {
         vec3 N = vec3_unit(vec3_sub(ray_point(r, t), vec3_create(0, 0, -1)));
         return vec3_mul_scalar(vec3_create(N.x + 1, N.y + 1, N.z + 1), 0.5);
@@ -42,7 +20,7 @@ vec3 color(ray r) {
     t = 0.5 * unit.y + 1.0;
     vec3 base = vec3_mul_scalar(vec3_create(1.0, 1.0, 1.0), (1.0 - t));
     vec3 diff = vec3_mul_scalar(vec3_create(0.5, 0.7, 1.0), t);
-    return vec3_add(base, diff);
+    return vec3_div(base, diff);
 }
 
 int main(int argc, char *argv[]) {

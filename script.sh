@@ -1,0 +1,1 @@
+make && ./build/manta-ray > test.ppm && convert test.ppm test.png
