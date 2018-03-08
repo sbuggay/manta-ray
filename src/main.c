@@ -12,7 +12,7 @@
  * @param r 
  * @return int 
  */
-int hit_sphere(vec3 center, float radius, ray r) {
+float hit_sphere(vec3 center, float radius, ray r) {
     vec3 oc = vec3_sub(r.a, center);
     float a = vec3_dot(r.b, r.b);
     float b = 2.0 * vec3_dot(oc, r.b);
@@ -33,11 +33,13 @@ int hit_sphere(vec3 center, float radius, ray r) {
  * @return vec3 
  */
 vec3 color(ray r) {
-    if (hit_sphere(vec3_create(0, 0, -1), 0.5, r)) {
-        return vec3_create(1, 0, 0);
+    float t = hit_sphere(vec3_create(0, 0, -1), 0.5, r);
+    if (t > 0.0) {
+        vec3 N = vec3_unit(vec3_sub(ray_point(r, t), vec3_create(0, 0, -1)));
+        return vec3_mul_scalar(vec3_create(N.x + 1, N.y + 1, N.z + 1), 0.5);
     }
     vec3 unit = vec3_unit(r.b);
-    float t = 0.5 * unit.y + 1.0;
+    t = 0.5 * unit.y + 1.0;
     vec3 base = vec3_mul_scalar(vec3_create(1.0, 1.0, 1.0), (1.0 - t));
     vec3 diff = vec3_mul_scalar(vec3_create(0.5, 0.7, 1.0), t);
     return vec3_add(base, diff);
