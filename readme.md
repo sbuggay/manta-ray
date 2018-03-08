@@ -11,7 +11,7 @@ Building
 make
 ```
 
-Runing
+Running
 ```
 ./build/mantaray
 ```

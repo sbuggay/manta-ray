@@ -6,9 +6,9 @@
  * 
  */
 typedef struct {
-    double x;
-    double y;
-    double z;
+    float x;
+    float y;
+    float z;
 } vec3;
 
 /**
@@ -19,7 +19,7 @@ typedef struct {
  * @param z 
  * @return vec3 
  */
-vec3 vec3_create(double x, double y, double z);
+vec3 vec3_create(float x, float y, float z);
 
 /**
  * @brief 
@@ -64,7 +64,7 @@ vec3 vec3_div(vec3 a, vec3 b);
  * @param t 
  * @return vec3 
  */
-vec3 vec3_mul_scalar(vec3 a, double t);
+vec3 vec3_mul_scalar(vec3 a, float t);
 
 /**
  * @brief 
@@ -73,7 +73,7 @@ vec3 vec3_mul_scalar(vec3 a, double t);
  * @param t 
  * @return vec3 
  */
-vec3 vec3_div_scalar(vec3 a, double t);
+vec3 vec3_div_scalar(vec3 a, float t);
 
 /**
  * @brief 
@@ -97,9 +97,9 @@ vec3 vec3_cross(vec3 a, vec3 b);
  * @brief 
  * 
  * @param a 
- * @return double 
+ * @return float 
  */
-double vec3_length(vec3 a);
+float vec3_length(vec3 a);
 
 /**
  * @brief 

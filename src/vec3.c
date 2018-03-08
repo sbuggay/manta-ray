@@ -2,7 +2,7 @@
 
 #include <math.h>
 
-vec3 vec3_create(double x, double y, double z) {
+vec3 vec3_create(float x, float y, float z) {
     return (vec3) {x, y, z};
 }
 
@@ -22,11 +22,11 @@ vec3 vec3_div(vec3 a, vec3 b) {
     return (vec3) {a.x / b.x, a.y / b.y, a.z / b.z};
 }
 
-vec3 vec3_mul_scalar(vec3 a, double t) {
+vec3 vec3_mul_scalar(vec3 a, float t) {
     return (vec3) {a.x * t, a.y * t, a.z * t};
 }
 
-vec3 vec3_div_scalar(vec3 a, double t) {
+vec3 vec3_div_scalar(vec3 a, float t) {
     return (vec3) {a.x / t, a.y / t, a.z / t};
 }
 
@@ -42,7 +42,7 @@ vec3 vec3_cross(vec3 a, vec3 b) {
     };
 }
 
-double vec3_length(vec3 a) {
+float vec3_length(vec3 a) {
     return sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
 }
 

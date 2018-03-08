@@ -55,16 +55,21 @@ int main(int argc, char *argv[]) {
     // Viewport dimensions
     int nx = 200;
     int ny = 100;
-    int i, j;
+    int ns = 100;
+    int i, j, s;
 
     printf("P3\n%d %d\n255\n", nx, ny);
     for (j = ny - 1; j >= 0; j--) {
         for (i = 0; i < nx; i++) {
-            float u = (float) i / (float) nx;
-            float v = (float) j / (float) ny;
-
-            ray r = ray_create(origin, vec3_add(vec3_add(lower_left_corner, vec3_mul_scalar(horizontal, u)), vec3_mul_scalar(vertical, v)));
-            vec3 col = color(r);
+            
+            vec3 col = vec3_create(0, 0, 0);
+            for (s = 0; s < ns; s++) {
+                float u = (float) (i + drand48()) / (float) nx;
+                float v = (float) (j + drand48()) / (float) ny;
+                ray r = ray_create(origin, vec3_add(vec3_add(lower_left_corner, vec3_mul_scalar(horizontal, u)), vec3_mul_scalar(vertical, v)));
+                col = vec3_add(col, color(r));
+            }
+            col = vec3_div_scalar(col, ns);
             int ir = (int) 255.99 * col.x;
             int ig = (int) 255.99 * col.y;
             int ib = (int) 255.99 * col.z;
